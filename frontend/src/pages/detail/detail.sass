@@ -1,0 +1,73 @@
+@import '../../styles/_variables'
+
+.detail
+    background: white
+    margin-bottom: 40px
+    &__container
+      display: flex
+      padding-top: $size-32
+      justify-content: space-between
+      align-items: flex-start
+    // flex-wrap: wrap
+    &__image
+        width: $img-size-big
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 32px
+    &__pic
+        width: 100%
+    &__info
+        width: 320px
+        padding: 0 $size-32
+    &__condition
+        font-size: $font-size-14
+        font-weight: 400
+    &__shipping
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        margin: 20px 0
+    &__icon
+        width: 30px
+        margin-right: 10px
+    &__title
+        margin: $size-16 0 $size-32 0
+        font-size: $font-size-24
+    &__price
+        font-size: $font-size-46
+        margin-bottom: $size-32
+        font-weight: 400
+        position: relative
+        display: inline-block
+    &__decimal
+        font-weight: lighter
+        font-size: $font-size-28
+        position: absolute
+        right: -30px
+    &__button
+        width: 100%
+        font-size: $font-size-16
+        background-color: $second-color
+        border: none
+        border-radius: $border-radius-4
+        color: white
+        padding: $size-16
+        cursor: pointer
+    &__loading
+        width: 1000px
+        height: 800px
+        background: white
+
+
+.description
+    padding: $size-32
+    &__text,
+    &__title
+        margin-bottom: $size-32
+        font-weight: 400
+    &__title
+        font-size: $font-size-28
+    &__text
+        font-size: $font-size-16
+        color: $gray-color
