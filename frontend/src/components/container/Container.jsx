@@ -1,7 +1,7 @@
-import './container.sass'
+import classes from './container.module.sass'
 
 const Container = ({ children }) => {
-  return <main className='main'>{children}</main>
+  return <main className={classes.main}>{children}</main>
 }
 
 export default Container

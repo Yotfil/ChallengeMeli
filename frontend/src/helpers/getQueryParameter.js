@@ -1,7 +1,6 @@
 export const getQueryParameter = strQueries => {
   const items = strQueries.replace('?', '').split('=')
-  const key = items[0]
-  const value = items[1]
+  const [key, value] = items
 
   const queries = {
     [key]: value,

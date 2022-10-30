@@ -6,25 +6,29 @@ import Container from '../../components/container/Container'
 import { useItems } from '../../context/ItemsContext'
 import { getDecimals } from '../../helpers/getDecimals'
 import { getDetailItem } from '../../helpers/getDetailItem'
-import './detail.sass'
+import classes from './detail.module.sass'
 
 const Detail = () => {
-  const { items = [] } = useItems()
-
   const { setCategories } = useItems()
 
   const { id } = useParams()
 
   const [currentItem, setCurrentItem] = useState(null)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     ;(async () => {
-      const selectedItem = await getDetailItem(id)
-      const { price } = selectedItem
-      const decimals = getDecimals(selectedItem.price.decimals)
-      price.decimals = decimals
-      setCurrentItem(selectedItem)
-      setCategories(selectedItem.category)
+      const { ok, response } = await getDetailItem(id)
+      if (ok) {
+        const selectedItem = response.item
+        const { price } = selectedItem
+        const decimals = getDecimals(selectedItem.price.decimals)
+        price.decimals = decimals
+        setCurrentItem(selectedItem)
+        setCategories(selectedItem.category)
+        return
+      }
+      setError(!ok)
     })()
   }, [])
 
@@ -33,52 +37,58 @@ const Detail = () => {
       <Breadcumbs></Breadcumbs>
 
       {currentItem !== null ? (
-        <div className='detail'>
-          <div className='detail__container'>
-            <div className='detail__image'>
+        <div className={classes.detail}>
+          <div className={classes.container}>
+            <div className={classes.image}>
               <img
                 src={currentItem.picture}
                 alt={currentItem.title}
-                className='detail__pic'
+                className={classes.pic}
               />
             </div>
-            <div className='detail__info'>
-              <p className='detail__condition'>
+            <div className={classes.info}>
+              <p className={classes.condition}>
                 {currentItem.condition} - {currentItem.sold_quantity} vendidos
               </p>
               {currentItem.free_shipping && (
-                <div className='detail__shipping'>
+                <div className={classes.shipping}>
                   <img
                     src={iconShipping}
                     alt={currentItem.title}
-                    className='detail__icon'
+                    className={classes.icon}
                   />
                   <span>Envío gratis</span>
                 </div>
               )}
-              <p className='detail__title'> {currentItem.title} </p>
-              <p className='detail__price'>
+              <p className={classes.title}> {currentItem.title} </p>
+              <p className={classes.price}>
                 ${currentItem.price.amount}
                 {currentItem.price.decimals && (
-                  <sub className='detail__decimal'>
+                  <sub className={classes.decimal}>
                     {currentItem.price.decimals}
                   </sub>
                 )}
               </p>
               <button
                 type='button'
-                className='detail__button'>
+                className={classes.button}>
                 Comprar
               </button>
             </div>
           </div>
-          <div className='description'>
-            <h3 className='description__title'>Descripcion del producto</h3>
-            <p className='description__text'> {currentItem.description} </p>
+          <div className={classes.description}>
+            <h3 className={classes.titleDescription}>
+              Descripcion del producto
+            </h3>
+            <p className={classes.text}> {currentItem.description} </p>
           </div>
         </div>
       ) : (
-        <div className='detail__loading'></div>
+        <div className={classes.loading}>
+          <div className={classes.errorMessage}>
+            {error ? <p>No se encontró ningun producto</p> : <></>}
+          </div>
+        </div>
       )}
     </Container>
   )

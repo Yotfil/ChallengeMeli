@@ -2,7 +2,7 @@ import { getRootCategories } from '../services/getRootCategories.js'
 import { SIGNATURE } from '../static/signature.js'
 import { createNewItem } from './newItem.js'
 
-export const getCategorieRepeated = data => {
+const getCategorieRepeated = (data = []) => {
   const repeatedCategory = Object.keys(getCategoriesList(data)).reduce(
     (acc, cur) => (cur > acc ? cur : acc)
   )
@@ -24,7 +24,7 @@ const getCategoriesList = data => {
   return categories
 }
 
-export const setNewItems = data => {
+const setNewItems = data => {
   const listItems = data.map(item => {
     return createNewItem(item)
   })

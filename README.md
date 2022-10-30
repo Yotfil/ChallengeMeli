@@ -35,9 +35,21 @@ Una vez clonado encontrarás dos carpetas, una llamada front donde se encuentra 
 
 Este comando se encargará de instalar todos los modulos necesarios para poder correr el proyecto en local.
 
+- **Una vez instalado usa el siguiente comando para correr el proyecto**
+
+```
+ npm run start
+```
+
+o corre el siguiente comando si quieres correr nodemon
+
+```
+ npm run dev
+```
+
 - _si quieres ver lo que devuelve la API ve a tu navegador e ingresa a la siguiente ruta:_
 
-  - **http://localhost:4000/api/items**
+  - **http://localhost:4000/api/items?search=query**
 
 - _Si quieres ver algún item en específico_
 
@@ -57,9 +69,15 @@ Este comando se encargará de instalar todos los modulos necesarios para poder c
 
 Este comando se encargará de instalar todos los modulos necesarios para poder correr el proyecto en local.
 
+- **Una vez instalado, usa el siguiente comando para correr el proyecto**
+
+```
+ yarn dev
+```
+
 - _El proyecto se abrirá en el siguiente link_
 
-  - **http://localhost:3000/items**
+  - \*\*http://localhost:5173/
 
 Ahora deberás poder ver el proyecto en tu navegador.
 

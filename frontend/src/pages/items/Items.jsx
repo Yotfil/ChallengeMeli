@@ -3,49 +3,52 @@ import iconShipping from '../../assets/ic_shipping@2x.png.png.png'
 import Breadcumbs from '../../components/breadcumbs/Breadcumbs'
 import Container from '../../components/container/Container'
 import { useItems } from '../../context/ItemsContext'
-import './items.sass'
+import classes from './items.module.sass'
 
 const Items = () => {
-  const { items = [] } = useItems()
+  const { items = [], dataOk } = useItems()
 
   return (
     <Container>
       <Breadcumbs></Breadcumbs>
 
       {items.length > 0 ? (
-        <ol className='items'>
+        <ol>
           {items.map(item => (
             <li
               key={item.id}
-              className='items__item'>
-              <div className='items__container'>
-                <div className='items__img-cont'>
+              className={classes.item}>
+              <div className={classes.container}>
+                <div className={classes.imgCont}>
                   <Link
                     to={`./${item.id}`}
-                    className='items__img'>
+                    className={classes.img}>
                     <img
-                      className='items__pic'
+                      className={classes.pic}
                       src={item.picture}
                       alt={item.title}
                     />
                   </Link>
                 </div>
-                <div className='items__info'>
-                  <div className='items__info-desc info'>
-                    <div className='info__cont-price'>
-                      <p className='info__price'> $ {item.price.amount} </p>
+                <div className={classes.infoCont}>
+                  <div className={classes.info}>
+                    <div className={classes.contPrice}>
+                      <p className={classes.price}> $ {item.price.amount} </p>
                       {item.free_shipping && (
                         <img
                           src={iconShipping}
                           alt={item.title}
-                          className='info__icon'
+                          className={classes.icon}
                         />
                       )}
+                      <span className={classes.condition}>
+                        - {item.condition}
+                      </span>
                     </div>
 
-                    <p className='info__title'>{item.title} </p>
+                    <p className={classes.title}>{item.title} </p>
                   </div>
-                  <div className='item__condition'>
+                  <div className={classes.condition}>
                     <p> {item.address} </p>
                   </div>
                 </div>
@@ -54,7 +57,11 @@ const Items = () => {
           ))}
         </ol>
       ) : (
-        <div className='items__container'></div>
+        <div className={classes.container}>
+          <div className={classes.errorMessage}>
+            {!dataOk ? <p>No se encontró nada </p> : <p>Buscando...</p>}
+          </div>
+        </div>
       )}
     </Container>
   )

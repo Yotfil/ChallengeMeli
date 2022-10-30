@@ -9,15 +9,14 @@ const Breadcumbs = () => {
       {categories ? (
         <div className={classes.breadcumbs}>
           {categories.map((item, index) => (
-            <a
-              href='#'
+            <span
               key={item.id}
-              className={classes.breadcumbs__item}>
+              className={classes.item}>
               {item.name}
               {categories.length !== index + 1 && (
-                <span className={classes.breadcumbs__separator}>&gt;</span>
+                <span className={classes.separator}>&gt;</span>
               )}
-            </a>
+            </span>
           ))}
         </div>
       ) : (

@@ -5,7 +5,7 @@ import logoMeli from '../../assets/Logo_ML.png'
 import { useItems } from '../../context/ItemsContext'
 import { getQueryParameter } from '../../helpers/getQueryParameter'
 
-import './searchBar.sass'
+import classes from './searchBar.module.sass'
 
 const SearchBar = () => {
   const navigate = useNavigate()
@@ -44,23 +44,23 @@ const SearchBar = () => {
   }
 
   return (
-    <nav className='navbar'>
-      <div className='navbar__cont'>
+    <nav className={classes.navbar}>
+      <div className={classes.cont}>
         <Link to={`/`}>
           <img
             src={logoMeli}
             alt='Logo de Mercado Libre'
-            className='navbar__logo'
+            className={classes.logo}
           />
         </Link>
 
         <form
           action=''
-          className='navbar__buscador'
+          className={classes.form}
           onSubmit={searchItem}>
           <input
             type='text'
-            className='navbar__input'
+            className={classes.input}
             placeholder='Nunca Dejes de Buscar'
             name='search'
             value={values.search}
@@ -69,7 +69,7 @@ const SearchBar = () => {
           <button type='submit'>
             <img
               src={searchIcon}
-              className='navbar__btn'
+              className={classes.btn}
               alt='Buscador'
             />
           </button>
