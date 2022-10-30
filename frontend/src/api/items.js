@@ -1,4 +1,4 @@
-import { API_URL } from '../consts/api_url'
+import { API_URL } from '../consts/apiUrl'
 
 export const getItems = async item =>
   await fetch(`${API_URL}/items?search=${item}`)
