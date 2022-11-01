@@ -1,4 +1,6 @@
-export const SIGNATURE = {
+const SIGNATURE = {
   name: 'Jefry',
   lastname: 'Guevara',
 }
+
+module.exports = SIGNATURE

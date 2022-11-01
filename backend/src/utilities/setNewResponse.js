@@ -1,6 +1,10 @@
-import { getRootCategories } from '../services/getRootCategories.js'
-import { SIGNATURE } from '../static/signature.js'
-import { createNewItem } from './newItem.js'
+// import { getRootCategories } from '../services/getRootCategories.js'
+// import { SIGNATURE } from '../static/signature.js'
+// import { createNewItem } from './newItem.js'
+
+const getRootCategories = require('../services/getRootCategories')
+const SIGNATURE = require('../static/signature')
+const createNewItem = require('./newItem')
 
 const getCategorieRepeated = (data = []) => {
   const repeatedCategory = Object.keys(getCategoriesList(data)).reduce(
@@ -31,7 +35,7 @@ const setNewItems = data => {
   return listItems
 }
 
-export const newListItems = async data => {
+const newListItems = async data => {
   const mostRepeatedCategory = getCategorieRepeated(data)
   const itemsSet = setNewItems(data)
 
@@ -43,3 +47,5 @@ export const newListItems = async data => {
 
   return newData
 }
+
+module.exports = newListItems

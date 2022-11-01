@@ -1,9 +1,12 @@
-import axios from 'axios'
-import dotenv from 'dotenv'
+// import axios from 'axios'
+// import dotenv from 'dotenv'
+
+const dotenv = require('dotenv')
+const axios = require('axios')
 
 dotenv.config()
 
-export async function getRootCategories(id) {
+async function getRootCategories(id) {
   try {
     const response = await axios.get(`${process.env.API_URL}/categories/${id}`)
     return response.data.path_from_root
@@ -11,3 +14,5 @@ export async function getRootCategories(id) {
     console.log(error)
   }
 }
+
+module.exports = getRootCategories

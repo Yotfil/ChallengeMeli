@@ -1,4 +1,4 @@
-export const createNewItem = data => {
+const createNewItem = data => {
   const price = Math.floor(data.price)
   const decimals = data.price % 1
   return {
@@ -14,3 +14,5 @@ export const createNewItem = data => {
     condition: data.condition,
   }
 }
+
+module.exports = createNewItem

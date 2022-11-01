@@ -6,11 +6,12 @@ const Breadcumbs = () => {
 
   return (
     <>
-      {categories ? (
+      {categories.length > 0 ? (
         <div className={classes.breadcumbs}>
           {categories.map((item, index) => (
             <span
               key={item.id}
+              data-testid='breadcumbs'
               className={classes.item}>
               {item.name}
               {categories.length !== index + 1 && (
@@ -20,7 +21,7 @@ const Breadcumbs = () => {
           ))}
         </div>
       ) : (
-        <div className={classes.breadcumbs}></div>
+        <div className={classes.breadcumbs} data-testid='void'></div>
       )}
     </>
   )

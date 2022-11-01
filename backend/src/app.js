@@ -1,12 +1,13 @@
-import cors from 'cors'
-import express from 'express'
+const cors = require('cors')
+const express = require('express')
 
 // //Routes
-import router from './routes/items.routes.js'
+const router = require('./routes/items.routes')
 
 const app = express()
+app.use(express.json())
 app.use(cors())
 
 app.use('/api', router)
 
-export default app
+module.exports = app

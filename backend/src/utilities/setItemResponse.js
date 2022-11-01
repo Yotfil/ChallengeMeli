@@ -1,7 +1,12 @@
-import { getItemDescription } from '../services/getItemDescription.js'
-import { getRootCategories } from '../services/getRootCategories.js'
-import { SIGNATURE } from '../static/signature.js'
-import { createNewItem } from './newItem.js'
+// import { getItemDescription } from '../services/getItemDescription.js'
+// import { getRootCategories } from '../services/getRootCategories.js'
+// import { SIGNATURE } from '../static/signature.js'
+// import { createNewItem } from './newItem.js'
+
+const getItemDescription = require('../services/getItemDescription')
+const getRootCategories = require('../services/getRootCategories')
+const SIGNATURE = require('../static/signature')
+const createNewItem = require('./newItem')
 
 const setNewItem = async data => {
   const newItem = {
@@ -13,7 +18,7 @@ const setNewItem = async data => {
   return newItem
 }
 
-export const newItemToSend = async data => {
+const newItemToSend = async data => {
   const newItem = await setNewItem(data)
 
   const newData = {
@@ -23,3 +28,5 @@ export const newItemToSend = async data => {
 
   return newData
 }
+
+module.exports = newItemToSend

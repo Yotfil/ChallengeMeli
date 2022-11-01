@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { getItems } from '../api/items'
-const itemsContext = createContext()
+import { getItemsRequest } from '../api/items'
+export const itemsContext = createContext()
 
 export const useItems = () => {
   const context = useContext(itemsContext)
@@ -19,7 +19,7 @@ export const ItemsProvider = ({ children }) => {
     if (itemToSearch.length < 2) return
     setItems([])
     ;(async () => {
-      const data = await (await getItems(itemToSearch)).json()
+      const data = await getItemsRequest(itemToSearch)
       if (data.ok) {
         setItems(data.response.items)
         setCategories(data.response.categories)

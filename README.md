@@ -7,6 +7,8 @@ Este proyecto es la respuesta al challenge para Front End.
 - [Github](https://github.com) - Manejador de versiones
 - [NodeJs](https://nodejs.org/es/) - Entorno de desarrollo del lado del servidor, basado en **Javascript**
 - [React](https://reactjs.org/) - Framework empleado en el front, basado en **javascript**
+- [Jest](https://jestjs.io/) - Librería uasada para hacer los test unitarios
+- [React testing library](https://testing-library.com/) - Librería complementaria para los test unitarios
 
 ### Pre-requisitos 📋
 
@@ -80,6 +82,22 @@ Este comando se encargará de instalar todos los modulos necesarios para poder c
   - \*\*http://localhost:5173/
 
 Ahora deberás poder ver el proyecto en tu navegador.
+
+## Testing 🧪
+
+Para poder correr los test, deberás ejecutar los siguientes comandos en las respectivas carpetas
+
+### Front
+
+```
+ yarn dev
+```
+
+### Back
+
+```
+npm run dev
+```
 
 # Autor
 

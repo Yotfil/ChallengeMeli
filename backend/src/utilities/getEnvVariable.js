@@ -1,6 +1,6 @@
-import dotenv from 'dotenv'
+const dotenv = require('dotenv')
 
-export const getEnvVariables = ( ) => {
+export const getEnvVariables = () => {
   dotenv.config()
   return process.env.API_URL
 }

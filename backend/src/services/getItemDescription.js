@@ -1,9 +1,11 @@
-import axios from 'axios'
-import dotenv from 'dotenv'
+// import axios from 'axios'
+// import dotenv from 'dotenv'
+const dotenv = require('dotenv')
+const axios = require('axios')
 
 dotenv.config()
 
-export async function getItemDescription(id) {
+async function getItemDescription(id) {
   try {
     const response = await axios.get(
       `${process.env.API_URL}/items/${id}/description`
@@ -14,3 +16,5 @@ export async function getItemDescription(id) {
     console.log(error)
   }
 }
+
+module.exports = getItemDescription

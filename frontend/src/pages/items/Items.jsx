@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import iconShipping from '../../assets/ic_shipping@2x.png.png.png'
+import iconShipping from '../../assets/ic_shipping2.png'
 import Breadcumbs from '../../components/breadcumbs/Breadcumbs'
 import Container from '../../components/container/Container'
 import { useItems } from '../../context/ItemsContext'
